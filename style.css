@@ -1,3 +1,32 @@
 body{
     background-color: #BEB8EB;
 }
+.skeleton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    background-color: #5e5c6c;
+    max-width: 60%;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-top:5%;
+    margin-bottom: 5%;
+    max-height: 60%;
+    
+    
+}
+.LCD{
+    background-color: black;
+    color: rgb(165, 255, 30);
+    min-width: 20%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.RowButton{
+    display: flex;
+    margin:2% 2%;
+}
+.button{
+    min-w
+}
