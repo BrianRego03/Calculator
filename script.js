@@ -68,8 +68,8 @@ function operandReset(){
 }
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
-    inputArray[inputKey]='';
-    display.textContent='0';
+    inputArray[inputKey]='0';
+    display.textContent=inputArray[inputKey];
     enableNumbers();
 }
 );
@@ -90,6 +90,8 @@ const button=document.querySelectorAll(".numButton");
 const display=document.querySelector(".LCD");
 button.forEach((clickButton)=>{
     clickButton.addEventListener('click',()=>{
+        if(inputArray[inputKey]==='0')
+        inputArray[inputKey]='';
         inputArray[inputKey]+=clickButton.textContent;
        
         display.textContent=inputArray[inputKey];
@@ -105,6 +107,7 @@ const sign=document.querySelectorAll(".operateButton");
 sign.forEach((clickButton)=>{
     clickButton.addEventListener('click',()=>{
         operate(inputArray[0],inputArray[1],operator);
+        display.textContent=inputArray[0];
         operator=clickButton.textContent;
         inputKey=1;
         
@@ -129,7 +132,30 @@ equals.forEach((clickButton)=>{
         
         
     })
-})
+});
+
+const negative=document.querySelector("#signButton");
+
+negative.addEventListener('click',()=>{
+        let tempArray=inputArray[inputKey].split('');
+        console.log(inputArray[inputKey]);
+        console.log(tempArray[0]);
+        
+        
+        if(inputArray[inputKey].length>15)
+            return;
+        else if(tempArray[0]==='-')
+            inputArray[inputKey]=inputArray[inputKey].slice(1);
+        else
+            inputArray[inputKey]='-' + inputArray[inputKey];
+         
+        console.log(inputArray[inputKey]);   
+        display.textContent=inputArray[inputKey];
+        console.log(inputArray[inputKey]);    
+        
+        
+        
+    });
 
 
 
