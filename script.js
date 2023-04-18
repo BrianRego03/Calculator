@@ -40,6 +40,14 @@ function operate(firstNum,secondNum,operation){
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{display.textContent='0';})
 
+const cButton=document.querySelector(".clearButton");
+cButton.addEventListener('click',()=>{
+    let y=display.textContent;
+    let x=(y.length)-1;
+    let z=y.slice(0,x);
+    display.textContent=z;
+    })
+
 
 const button=document.querySelectorAll(".numButton");
 const display=document.querySelector(".LCD");
