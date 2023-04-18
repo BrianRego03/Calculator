@@ -159,5 +159,26 @@ negative.addEventListener('click',()=>{
     });
 
 
+    const decimal=document.querySelector("#decimalButton");
+
+    decimal.addEventListener('click',()=>{
+        let tempArray=inputArray[inputKey].split('');
+        for(i=0;i<inputArray[inputKey].length;i++){
+            if(tempArray[i]==='.')
+                return;              
+        }
+        if(inputArray[inputKey]===''){
+            inputArray[inputKey]=inputArray[inputKey] + '0.';
+            display.textContent=inputArray[inputKey];
+            return;
+        }
+        inputArray[inputKey]=inputArray[inputKey] + '.';
+        display.textContent=inputArray[inputKey];
+
+
+
+            
+        });    
+
 
 
