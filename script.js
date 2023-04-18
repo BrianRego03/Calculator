@@ -115,4 +115,21 @@ sign.forEach((clickButton)=>{
     })
 })
 
+const equals=document.querySelectorAll("#equalButton");
+
+equals.forEach((clickButton)=>{
+    clickButton.addEventListener('click',()=>{
+        operate(inputArray[0],inputArray[1],operator);
+       
+        inputKey=0;
+        display.textContent=inputArray[inputKey];
+        operator='';
+        
+        enableNumbers();
+        
+        
+    })
+})
+
+
 
