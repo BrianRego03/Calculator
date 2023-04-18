@@ -1,4 +1,4 @@
-let input1;
+let input1="";
 let input2;
 let operator;
 
@@ -37,3 +37,23 @@ function operate(firstNum,secondNum,operation){
     }
     return input1;
 }
+const acButton=document.querySelector(".specialButton");
+acButton.addEventListener('click',()=>{display.textContent='0';})
+
+
+const button=document.querySelectorAll(".numButton");
+const display=document.querySelector(".LCD");
+button.forEach((clickButton)=>{
+    clickButton.addEventListener('click',()=>{
+        input1+=clickButton.textContent;
+        console.log(display.textContent.length);
+        display.textContent=input1;
+        
+        if(display.textContent.length>15)
+            button.forEach((clickButton)=>{
+                clickButton.disabled=true;
+            })
+    })
+})
+
+
