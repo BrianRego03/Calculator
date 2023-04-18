@@ -46,6 +46,8 @@ cButton.addEventListener('click',()=>{
     let x=(y.length)-1;
     let z=y.slice(0,x);
     display.textContent=z;
+    if(display.textContent==='')
+        display.textContent='0';
     })
 
 
