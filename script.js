@@ -1,7 +1,8 @@
 let input1="";
 let input2;
 let operator;
-
+let inputKey=0;
+let inputArray=[''];
 
 
 function addition(num1,num2){
@@ -22,19 +23,19 @@ function remainder(num1,num2){
 
 function operate(firstNum,secondNum,operation){
     if(operation==='+'){
-        input1=addition(+firstNum,+secondNum);
+        inputArray[inputKey]=addition(+firstNum,+secondNum);
     }
     else if(operation==='-'){
-        input1=subtraction(+firstNum,+secondNum);
+        inputArray[inputKey]=subtraction(+firstNum,+secondNum);
     }
     else if(operation==='*'){
-        input1=product(+firstNum,+secondNum);
+        inputArray[inputKey]=product(+firstNum,+secondNum);
     }
     else if(operation==='/'){
-        input1=divide(+firstNum,+secondNum);
+        inputArray[inputKey]=divide(+firstNum,+secondNum);
     }
     else if(operation==='%'){
-        input1=remainder(+firstNum,+secondNum);
+        inputArray[inputKey]=remainder(+firstNum,+secondNum);
     }
     return input1;
 }
@@ -55,7 +56,7 @@ function enableNumbers(){
 }
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
-    input1='';
+    inputArray[inputKey]='';
     display.textContent='0';
     enableNumbers();
 }
@@ -66,7 +67,7 @@ cButton.addEventListener('click',()=>{
     let y=display.textContent;
     let x=(y.length)-1;
     let z=y.slice(0,x);
-    input1=z;
+    inputArray[inputKey]=z;
     display.textContent=z;
     if(display.textContent==='')
         display.textContent='0';
@@ -77,9 +78,9 @@ const button=document.querySelectorAll(".numButton");
 const display=document.querySelector(".LCD");
 button.forEach((clickButton)=>{
     clickButton.addEventListener('click',()=>{
-        input1+=clickButton.textContent;
+        inputArray[inputKey]+=clickButton.textContent;
         console.log(display.textContent.length);
-        display.textContent=input1;
+        display.textContent=inputArray[inputKey];
         disableNumbers();
         
         
