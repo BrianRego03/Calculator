@@ -118,21 +118,20 @@ sign.forEach((clickButton)=>{
     })
 })
 
-const equals=document.querySelectorAll("#equalButton");
+const equals=document.querySelector("#equalButton");
 
-equals.forEach((clickButton)=>{
-    clickButton.addEventListener('click',()=>{
-        operate(inputArray[0],inputArray[1],operator);
-       
-        inputKey=0;
-        display.textContent=inputArray[inputKey];
-        operator='';
+equals.addEventListener('click',()=>{
+    operate(inputArray[0],inputArray[1],operator);
+    
+    inputKey=0;
+    display.textContent=inputArray[inputKey];
+    operator='';
+    
+    enableNumbers();
         
-        enableNumbers();
         
-        
-    })
-});
+    });
+
 
 const negative=document.querySelector("#signButton");
 
