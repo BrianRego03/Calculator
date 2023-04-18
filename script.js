@@ -96,7 +96,7 @@ function operandReset(){
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
     inputArray=['0',''];
-    display.textContent=inputArray[inputKey];
+    display.textContent=inputArray[0];
     enableNumbers();
 }
 );
