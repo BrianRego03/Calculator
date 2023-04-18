@@ -2,7 +2,7 @@ let input1="";
 let input2;
 let operator;
 let inputKey=0;
-let inputArray=[''];
+let inputArray=['',''];
 
 
 function addition(num1,num2){
@@ -23,21 +23,26 @@ function remainder(num1,num2){
 
 function operate(firstNum,secondNum,operation){
     if(operation==='+'){
-        inputArray[inputKey]=addition(+firstNum,+secondNum);
+        inputArray[0]=addition(+firstNum,+secondNum);
+        operandReset()
     }
     else if(operation==='-'){
-        inputArray[inputKey]=subtraction(+firstNum,+secondNum);
+        inputArray[0]=subtraction(+firstNum,+secondNum);
+        operandReset()
     }
     else if(operation==='*'){
-        inputArray[inputKey]=product(+firstNum,+secondNum);
+        inputArray[0]=product(+firstNum,+secondNum);
+        operandReset()
     }
     else if(operation==='/'){
-        inputArray[inputKey]=divide(+firstNum,+secondNum);
+        inputArray[0]=divide(+firstNum,+secondNum);
+        operandReset()
     }
     else if(operation==='%'){
-        inputArray[inputKey]=remainder(+firstNum,+secondNum);
+        inputArray[0]=remainder(+firstNum,+secondNum);
+        operandReset()
     }
-    return input1;
+    
 }
 
 function disableNumbers(){
@@ -53,6 +58,13 @@ function enableNumbers(){
     button.forEach((clickButton)=>{
         clickButton.disabled=false;
             })
+}
+
+function operandReset(){
+    inputArray[1]='';
+    inputKey=0;
+    console.log(inputArray[0]);
+    
 }
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
@@ -79,13 +91,28 @@ const display=document.querySelector(".LCD");
 button.forEach((clickButton)=>{
     clickButton.addEventListener('click',()=>{
         inputArray[inputKey]+=clickButton.textContent;
-        console.log(display.textContent.length);
+       
         display.textContent=inputArray[inputKey];
+        
         disableNumbers();
         
         
     })
 })
 
+const sign=document.querySelectorAll(".operateButton");
+
+sign.forEach((clickButton)=>{
+    clickButton.addEventListener('click',()=>{
+        operate(inputArray[0],inputArray[1],operator);
+        operator=clickButton.textContent;
+        inputKey=1;
+        
+        
+        enableNumbers();
+        
+        
+    })
+})
 
 
