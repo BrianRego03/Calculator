@@ -1,5 +1,5 @@
 body{
-    background-color: #BEB8EB;
+    background-color: #2F243A;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -34,9 +34,27 @@ body{
     justify-content: center;
 }
 button{
-   padding:10% 0;    
+   padding:10% 0;  
+   color: white;  
+   font-size: large;
 }
 .buttonGeneral{
     min-width: 25%;
     min-height: 25%;
+}
+
+.specialButton{
+    background-color: #89023E;
+    
+}
+.clearButton{
+    background-color: #0B5563;
+    
+}
+
+.numButton{
+    background-color: #30343F;
+}
+.symbolButton{
+    background-color: #444054;
 }
