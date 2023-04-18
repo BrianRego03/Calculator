@@ -105,6 +105,8 @@ button.forEach((clickButton)=>{
 const sign=document.querySelectorAll(".operateButton");
 
 sign.forEach((clickButton)=>{
+    if(inputArray[inputKey]==='')
+        inputArray[inputKey]=0;
     clickButton.addEventListener('click',()=>{
         operate(inputArray[0],inputArray[1],operator);
         display.textContent=inputArray[0];
@@ -155,6 +157,7 @@ negative.addEventListener('click',()=>{
         
         
     });
+
 
 
 
