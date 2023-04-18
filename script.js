@@ -91,7 +91,7 @@ const display=document.querySelector(".LCD");
 button.forEach((clickButton)=>{
     clickButton.addEventListener('click',()=>{
         if(inputArray[inputKey]==='0')
-        inputArray[inputKey]='';
+            inputArray[inputKey]='';
         inputArray[inputKey]+=clickButton.textContent;
        
         display.textContent=inputArray[inputKey];
@@ -105,9 +105,9 @@ button.forEach((clickButton)=>{
 const sign=document.querySelectorAll(".operateButton");
 
 sign.forEach((clickButton)=>{
-    if(inputArray[inputKey]==='')
-        inputArray[inputKey]=0;
     clickButton.addEventListener('click',()=>{
+        if(inputArray[inputKey]==='')
+            inputArray[inputKey]=0;
         operate(inputArray[0],inputArray[1],operator);
         display.textContent=inputArray[0];
         operator=clickButton.textContent;
