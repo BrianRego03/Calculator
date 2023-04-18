@@ -3,6 +3,7 @@ let input2;
 let operator;
 
 
+
 function addition(num1,num2){
     return num1+num2;
 }
@@ -37,18 +38,39 @@ function operate(firstNum,secondNum,operation){
     }
     return input1;
 }
+
+function disableNumbers(){
+    if(display.textContent.length>15)
+            button.forEach((clickButton)=>
+            {
+                clickButton.disabled=true;
+            })
+
+}
+function enableNumbers(){
+    
+    button.forEach((clickButton)=>{
+        clickButton.disabled=false;
+            })
+}
 const acButton=document.querySelector(".specialButton");
-acButton.addEventListener('click',()=>{display.textContent='0';})
+acButton.addEventListener('click',()=>{
+    input1='';
+    display.textContent='0';
+    enableNumbers();
+}
+);
 
 const cButton=document.querySelector(".clearButton");
 cButton.addEventListener('click',()=>{
     let y=display.textContent;
     let x=(y.length)-1;
     let z=y.slice(0,x);
+    input1=z;
     display.textContent=z;
     if(display.textContent==='')
         display.textContent='0';
-    })
+    });
 
 
 const button=document.querySelectorAll(".numButton");
@@ -58,12 +80,11 @@ button.forEach((clickButton)=>{
         input1+=clickButton.textContent;
         console.log(display.textContent.length);
         display.textContent=input1;
+        disableNumbers();
         
-        if(display.textContent.length>15)
-            button.forEach((clickButton)=>{
-                clickButton.disabled=true;
-            })
+        
     })
 })
+
 
 
