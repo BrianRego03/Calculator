@@ -46,7 +46,7 @@ function operate(firstNum,secondNum,operation){
 }
 
 function disableNumbers(){
-    if(display.textContent.length>15)
+    if(display.textContent.length>10)
             button.forEach((clickButton)=>
             {
                 clickButton.disabled=true;
@@ -60,6 +60,33 @@ function enableNumbers(){
             })
 }
 
+function disableSign(){
+    
+    sign.forEach((clickButton)=>
+    {
+        clickButton.disabled=true;
+    })
+
+}
+
+function enableSign(){
+    
+    sign.forEach((clickButton)=>{
+        clickButton.disabled=false;
+            })
+}
+
+function disableEqual(){
+    
+    equals.disabled=true;
+
+}
+
+function enableEqual(){
+    
+    equals.disabled=false;
+}
+
 function operandReset(){
     inputArray[1]='';
     inputKey=0;
@@ -68,7 +95,7 @@ function operandReset(){
 }
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
-    inputArray[inputKey]='0';
+    inputArray=['0',''];
     display.textContent=inputArray[inputKey];
     enableNumbers();
 }
@@ -97,6 +124,8 @@ button.forEach((clickButton)=>{
         display.textContent=inputArray[inputKey];
         
         disableNumbers();
+        enableSign();
+        enableEqual();
         
         
     })
@@ -106,6 +135,8 @@ const sign=document.querySelectorAll(".operateButton");
 
 sign.forEach((clickButton)=>{
     clickButton.addEventListener('click',()=>{
+        disableSign();
+        disableEqual();
         if(inputArray[inputKey]==='')
             inputArray[inputKey]=0;
         operate(inputArray[0],inputArray[1],operator);
