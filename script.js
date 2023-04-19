@@ -15,9 +15,20 @@ function product(num1,num2){
     return num1*num2;
 }
 function divide(num1,num2){
+    if(num2===0)
+        {
+            errorReset();
+            return;
+        }
     return num1/num2;
 }
 function remainder(num1,num2){
+    if(num2===0)
+        {
+            errorReset();
+            return;
+        }  
+
     return num1%num2;
 }
 
@@ -87,11 +98,21 @@ function enableEqual(){
     equals.disabled=false;
 }
 
+function errorReset(){
+    alert('ERROR');
+    inputArray=['',''];
+    display.textContent='0';
+    inputKey=0;
+    operator='';
+    enableNumbers();
+    enableSign();
+    enableEqual();
+}
+
 function operandReset(){
     inputArray[1]='';
     inputKey=0;
-    console.log(inputArray[0]);
-    
+       
 }
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
@@ -174,6 +195,10 @@ equals.addEventListener('click',()=>{
     operate(inputArray[0],inputArray[1],operator);
     
     inputKey=0;
+    if(inputArray[0]==='')
+    {
+        return;
+    }
     display.textContent=inputArray[inputKey];
     operator='';
     
