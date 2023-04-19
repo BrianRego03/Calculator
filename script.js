@@ -103,6 +103,11 @@ acButton.addEventListener('click',()=>{
 
 const cButton=document.querySelector(".clearButton");
 cButton.addEventListener('click',()=>{
+    if(operator!==''){
+        operator='';
+        inputKey=0;
+        enableSign();
+    }
     let y=display.textContent;
     let x=(y.length)-1;
     let z=y.slice(0,x);
