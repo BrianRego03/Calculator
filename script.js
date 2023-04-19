@@ -95,18 +95,30 @@ function operandReset(){
 }
 const acButton=document.querySelector(".specialButton");
 acButton.addEventListener('click',()=>{
-    inputArray=['0',''];
-    display.textContent=inputArray[0];
+    inputArray=['',''];
+    display.textContent='0';
+    inputKey=0;
+    
     enableNumbers();
+    enableSign();
+    enableEqual();
 }
 );
 
 const cButton=document.querySelector(".clearButton");
 cButton.addEventListener('click',()=>{
-    if(operator!==''){
+    if(inputArray[1]!==''){
+        
+        
+        enableEqual();
+    }
+    if(operator!=='')
+    {
         operator='';
-        inputKey=0;
         enableSign();
+        enableEqual();
+        inputKey=0;
+
     }
     let y=display.textContent;
     let x=(y.length)-1;
