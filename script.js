@@ -98,7 +98,7 @@ acButton.addEventListener('click',()=>{
     inputArray=['',''];
     display.textContent='0';
     inputKey=0;
-    
+    operator='';
     enableNumbers();
     enableSign();
     enableEqual();
@@ -112,7 +112,7 @@ cButton.addEventListener('click',()=>{
         
         enableEqual();
     }
-    if(operator!=='')
+    if((operator!=='')&&(inputArray[1]===''))
     {
         operator='';
         enableSign();
